@@ -1,0 +1,40 @@
+body{
+  max-width: 1060px;
+  margin: auto;
+  text-align: center;
+}
+
+#allumettes {
+  display: flex;
+  position: relative;
+  margin-bottom: 100px;
+
+  hr{
+    height: 200px;
+    width: 5px;
+    background-color: brown;
+  }
+}
+
+.taken{
+  animation: 1s slideOut;
+  animation-fill-mode: forwards;
+  position: relative;
+}
+
+@keyframes slideOut{
+  0% {
+    bottom: 0;
+    opacity: 1;
+  }
+
+  50% {
+    bottom: -100px;
+    opacity: 0.80;
+  }
+
+  100%{
+    bottom: -100px;
+    opacity: 0;
+  }
+}
