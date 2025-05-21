@@ -1,6 +1,12 @@
 class JeuDeNim {
   // Constructeur de la classe
-  constructor(display, displayButtons, boutonReset, affichageAllumettes) {
+  constructor(
+    display,
+    displayButtons,
+    boutonReset,
+    affichageAllumettes,
+    counter
+  ) {
     // Compteur d'allumettes
     this.allumettesRestantes = 20;
     // Définit si c'est le tour du joueur
@@ -15,6 +21,7 @@ class JeuDeNim {
     this.boutonReset = boutonReset;
     // Permet de gérer l'affichage visuel du nombre d'allumettes
     this.affichageAllumettes = affichageAllumettes;
+    this.counter = counter;
   }
 
   // Fonction pour gérer l'élimination des allumettes au fur et à mesure de la partie
@@ -96,6 +103,7 @@ class JeuDeNim {
         this.affichageAllumettes[i].classList.add("taken-computer");
       }
     }
+    this.counter.textContent = this.allumettesRestantes;
     // Définit si le prochain tour est celui du joueur ou celui de l'ordinateur
     this.tourJoueur === true
       ? (this.tourJoueur = false)
@@ -111,6 +119,7 @@ class JeuDeNim {
     });
     // Remet à zéro toutes les données et tout l'affichage des boutons
     this.allumettesRestantes = 20;
+    this.counter.textContent = this.allumettesRestantes;
     this.tourJoueur = true;
     this.estFini = false;
     this.displayButtons.classList.remove("hidden");
@@ -125,6 +134,8 @@ const display = document.querySelector("#action-en-cours");
 const displayButtons = document.querySelector("#boutons");
 // Sélectionne toutes les allumettes et les mets dans une liste Node d'élément
 const affichageAllumettes = document.querySelectorAll("hr");
+// Sélectionne un affichage numérique du nombre restant d'allumettes
+const counter = document.querySelector("#counter");
 // Sélectionne le bouton prévu pour reset
 const boutonReset = document.querySelector("#bouton-reset");
 // Construction du nouvel élément partieEnCours avec les éléments au dessus en paramètres
@@ -132,7 +143,8 @@ const partieEnCours = new JeuDeNim(
   display,
   displayButtons,
   boutonReset,
-  affichageAllumettes
+  affichageAllumettes,
+  counter
 );
 
 // Sélection des boutons uniquement présents dans la div des boutons joueur pour ne pas sélectionner accidentellement le bouton de reset au passage
