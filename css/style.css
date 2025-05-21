@@ -16,6 +16,10 @@ body{
   }
 }
 
+p{
+  font-size: 25px;
+}
+
 .taken{
   animation: 1s slideOut;
   animation-fill-mode: forwards;
@@ -37,4 +41,8 @@ body{
     bottom: -100px;
     opacity: 0;
   }
+}
+
+button{
+  padding: 20px;
 }
