@@ -148,7 +148,7 @@ const partieEnCours = new JeuDeNim(
 );
 
 // Sélection des boutons uniquement présents dans la div des boutons joueur pour ne pas sélectionner accidentellement le bouton de reset au passage
-const boutons = document.querySelectorAll("#boutons > button");
+const boutons = document.querySelectorAll("[data-button]");
 // Pour chaque bouton on définit l'écouteur d'évènement
 boutons.forEach((bouton) => {
   bouton.addEventListener("click", (e) => {
